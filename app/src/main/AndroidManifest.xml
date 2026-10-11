@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+      FULLY LOCAL GUARANTEE (main / local flavor):
+      * No INTERNET permission — the OS refuses any socket; the app cannot
+        transmit data even if code tried to.
+      * allowBackup=false blocks cloud Auto Backup and device-to-device
+        migration. Saves move between devices only via the in-app
+        EXPORT/IMPORT (SAF with EXTRA_LOCAL_ONLY).
+      The play flavor ADDS INTERNET/AD_ID via the ads SDK manifest merge.
+    -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:label="NURBS Runner"
+        android:icon="@drawable/ic_launcher"
+        android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:resizeableActivity="false"
+            android:configChanges="orientation|screenSize|keyboardHidden|uiMode">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
